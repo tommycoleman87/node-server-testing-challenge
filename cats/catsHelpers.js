@@ -5,7 +5,7 @@ module.exports = {
     findCatByName
 }
 function addCat(cat) {
-   return db('cats').insert(cat).then(result => result)
+   return db('cats').insert(cat).then(result => result[0])
 }
 
 function deleteCat(id) {

@@ -13,6 +13,16 @@ describe('cats model', () => {
         expect(cats).toHaveLength(1);
     })
 
+    it('should insert a new cat into cats and return id', async () => {
+        await Cats.addCat({name: 'Mr. Bigglesworth'}).then(res => {
+            expect(res).toBe(1)
+        })
+        const cats = await db('cats')
+        expect(cats).toHaveLength(1);
+    })
+
+    
+
     it('should return the new cat from cats', async () => {
         await Cats.addCat({name: 'Mrs. Norris'})
         let cats = await db('cats');
@@ -45,7 +55,5 @@ describe('cats model', () => {
 
     })
 
-    it('', async () => {
-
-    })
+    
 })
